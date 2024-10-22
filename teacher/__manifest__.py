@@ -1,5 +1,5 @@
 {
-   'name': "Student Management",
+   'name': "Teacher Management",
    'summary': "Module education management",
    'description': """
    What it does
