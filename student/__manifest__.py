@@ -19,6 +19,7 @@
    'depends': ['base'],
    'data': [
        'views/student_profile.xml',
+       'views/student_attendance.xml',
        'security/ir.model.access.csv',
        'security/group.xml',
 

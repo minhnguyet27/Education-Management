@@ -18,8 +18,7 @@
             <field name="phone" />
             <field name="gender" />
             <field name="birth" />
-            <field name="is_active_icon" widget="boolean" readonly="1"
-            options="{'color': {'true': 'green', 'false': 'red'}}"/>                   
+            <field name="is_active_icon" widget="status_icon" options="{'color': {'true': 'icon-active', 'false': 'icon-inactive'}}"/>                 
          </tree>
       </field>
    </record>
@@ -38,13 +37,15 @@
                      <group>
                         <field name="student_code" />
                         <field name="name" />                   
-                        <field name="email" />                   
+                        <field name="email" />  
+                        <field name="address" />                 
                      </group>
-                     <group>
-                        <field name="address" />
+                     <group>                      
                         <field name="birth" />
                         <field name="gender" />
                         <field name="phone" />
+                        <field name="is_active_icon" widget="status_icon"/>                 
+
                      </group>
                   </group>          
             </sheet>
@@ -67,8 +68,8 @@
       </field>
    </record>
 
-   <menuitem name="Student Manager" id="education_student_menu_root" />
+   <menuitem name="Student Manager" id="education_student_menu_root" sequence="1" />
    <menuitem id="education_student_menu" action="student_profile_action"
-   parent="education_student_menu_root" name="Profile" sequence="50" />
+   parent="education_student_menu_root" name="Profile" sequence="2" />
 
 </odoo>
