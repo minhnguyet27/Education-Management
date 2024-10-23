@@ -18,6 +18,8 @@
             <field name="phone" />
             <field name="gender" />
             <field name="birth" />
+            <field name="is_active_icon" widget="boolean" readonly="1"
+            options="{'color': {'true': 'green', 'false': 'red'}}"/>                   
          </tree>
       </field>
    </record>

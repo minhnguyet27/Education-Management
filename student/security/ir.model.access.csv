@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+ace_student,education.student user,model_student_profile,,1,0,0,0

@@ -19,6 +19,9 @@
    'depends': ['base'],
    'data': [
        'views/student_profile.xml',
+       'security/ir.model.access.csv',
+       'security/group.xml',
+
    ],
 #    'demo': ['demo/demo.xml'], 
    'installable': True,
