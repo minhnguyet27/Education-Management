@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   <record id="teacher_profile_action" model="ir.actions.act_window">
+      <field name="name">teachers</field>
+      <field name="res_model">teacher.profile</field>
+      <field name="view_mode">tree,form</field>
+   </record>
+   <record id="education_teacher_view_tree" model="ir.ui.view">
+      <field name="name">teacher.profile.tree</field>
+      <field name="model">teacher.profile</field>
+      <field name="arch" type="xml">
+         <tree string="teacher Tree">
+            <field name="name"/>
+            <field name="identification_id"/>
+            <field name="hire_date"/>
+            <field name="salary_per_hour"/>                 
+         </tree>
+      </field>
+   </record>
+
+    <record id="view_teacher_form" model="ir.ui.view">
+        <field name="name">teacher.profile.form</field>
+        <field name="model">teacher.profile</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="identification_id"/>
+                        <field name="hire_date"/>
+                        <field name="salary_per_hour"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
