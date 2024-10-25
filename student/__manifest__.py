@@ -18,7 +18,7 @@
    'version': '0.1.0',
    'depends': ['base','teacher'],
    'data': [
-       'views/student_profile.xml',
+       'views/student_profile1.xml',
        'views/student_attendance.xml',
        'security/ir.model.access.csv',
        'security/group.xml',
@@ -27,5 +27,5 @@
 #    'demo': ['demo/demo.xml'], 
    'installable': True,
    'application': True,
-   'auto_install': False,
+   'auto_install': True,
 }

@@ -2,7 +2,8 @@ from odoo import fields, models, api
 
 class student_profile(models.Model):
     _name = 'student.profile'
-    _description = 'Student Profile'    
+    _description = 'Student Profile'
+
     student_code = fields.Char(string='Student Code', required=True)
     name = fields.Char(string='Student Name', required=True)
     birth = fields.Date(string='Birth Date', required=True)

@@ -1,6 +1,6 @@
 {
    'name': "Teacher Management",
-   'summary': "Module for managing teachers and parents in the education system.",
+   'summary': "Module for managing teachers in the education system.",
    'description': """
    Teacher Management
    ==================
@@ -18,7 +18,9 @@
    'version': '0.1.0',
    'depends': ['base'],
    'data': [ 
-      'views/teacher_profile.xml',      
+      'views/teacher_profile.xml',
+      'views/teacher_attendance.xml',
+
    ],
 #    'demo': ['demo/demo.xml'], 
    'installable': True,
