@@ -18,8 +18,10 @@
    'version': '0.1.0',
    'depends': ['base'],
    'data': [ 
-      'views/teacher_profile.xml',
+      'views/teacher_payroll.xml',
       'views/teacher_attendance.xml',
+      'views/teacher_profile.xml',
+
 
    ],
 #    'demo': ['demo/demo.xml'], 
