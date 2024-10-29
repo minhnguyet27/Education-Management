@@ -20,8 +20,9 @@
    'data': [
        'views/student_profile1.xml',
        'views/student_attendance.xml',
+       'security/education_category.xml',
+       'security/student_security.xml',
        'security/ir.model.access.csv',
-       'security/group.xml',
 
    ],
 #    'demo': ['demo/demo.xml'], 

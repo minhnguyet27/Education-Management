@@ -21,7 +21,9 @@
       'views/teacher_payroll.xml',
       'views/teacher_attendance.xml',
       'views/teacher_profile.xml',
-
+      'security/education_category.xml',
+      'security/teacher_security.xml',
+      'security/ir.model.access.csv',
 
    ],
 #    'demo': ['demo/demo.xml'], 
