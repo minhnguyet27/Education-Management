@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="teacher_attendance_action" model="ir.actions.act_window">
+            <field name="name">teachers</field>
+            <field name="res_model">teacher.attendance</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+       <record id="teacher_attendance_view_tree" model="ir.ui.view">
+            <field name="name">teacher.attendance.view.tree</field>
+            <field name="model">teacher.attendance</field>
+            <field name="arch" type="xml">
+                <tree string="Teacher Attendance">
+                    <field name="teacher_id" string="Teacher"/>
+                    <field name="date" string="Date"/>
+                    <field name="hours_worked" string="Hours worked"/>                
+                </tree>
+            </field>
+       </record>
+
+       <record id="teacher_attendance_view_form" model="ir.ui.view">
+            <field name="name">teacher.attendance.view.form</field>
+            <field name="model">teacher.attendance</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="teacher_id" />
+                            <field name="date" />
+                            <field name="hours_worked" /> 
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+       </record>
+
+        <!-- <menuitem name="Teacher Manager" id="education_teacher_menu_root"  /> -->
+        <menuitem id="education_teacher_attendance_menu" action="teacher_attendance_action"
+        parent="education_teacher_menu_root" name="Attendance" sequence="3"/>
+
+    </data>  
+</odoo>

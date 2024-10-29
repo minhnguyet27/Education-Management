@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- tree_view -->
+        <record id="education_student_view_tree" model="ir.ui.view">
+            <field name="name">student.profile.tree</field>
+            <field name="model">student.profile</field>
+            <field name="arch" type="xml">
+                <tree string="Student Tree">
+                    <field name="student_code" />
+                    <field name="name" />
+                    <field name="email" />
+                    <field name="phone" />
+                    <field name="gender" />
+                    <field name="birth" />
+                    <field name="is_active_icon" widget="status_icon" options="{'color': {'true': 'icon-active', 'false': 'icon-inactive'}}"/>                 
+                </tree>
+            </field>
+        </record>
+
+                <!-- form_view -->
+        <record id="student_profile_view_form" model="ir.ui.view">
+            <field name="name">student.profile.form</field>
+            <field name="model">student.profile</field>
+            <field name="arch" type="xml">
+                <form string="Student Form">
+                    <header>
+                        <!-- <button string="Save" type="object" name="action_save" class="btn-primary"/>
+                        <button string="Edit" type="object" name="action_edit" class="btn-secondary"/> -->
+                    </header>
+                    <sheet>            
+                        <group>
+                            <group>
+                                <field name="student_code" />
+                                <field name="name" />                   
+                                <field name="email" />  
+                                <field name="address" />                 
+                            </group>
+                            <group>                      
+                                <field name="birth" />
+                                <field name="gender" />
+                                <field name="phone" />
+                                <field name="is_active_icon" widget="status_icon"/>                 
+                            </group>
+                        </group>          
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="student_profile_action" model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="res_model">student.profile</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+   
+
+
+
+        <!-- search -->
+        <!-- <record id="student_profile_view_search" model="ir.ui.view">
+            <field name="name">student.profile.search</field>
+            <field name="model">student.profile</field>
+            <field name="arch" type="xml">
+                <search string="Students Search">
+                    <field name="name" filter_domain="['|', '|', ('name', 'ilike', self), ('student_code', '=', self)]"/>
+                    <field name="student_code"/>
+                    <field name="gender"/>
+                    <field name="email"/>
+                    <field name="address"/>
+                </search>
+            </field>
+        </record> -->
+
+        <menuitem name="Student Manager" id="education_student_menu_root" sequence="1" />
+        <menuitem id="education_student_menu" action="student_profile_action"
+                  parent="education_student_menu_root" name="Profile" sequence="2" />
+
+    </data>
+</odoo>

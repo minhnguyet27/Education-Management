@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <!-- Nhóm quyền cho Quản lý giáo viên -->
+        <record id="group_teacher_manager" model="res.groups">
+            <field name="name">Teacher Manager</field>
+            <field name="category_id" ref="module_category_education"/>
+        </record>
+
+        <!-- Nhóm quyền cho Nhân viên giáo viên -->
+        <record id="group_teacher_user" model="res.groups">
+            <field name="name">Teacher User</field>
+            <field name="category_id" ref="module_category_education"/>
+        </record>
+    </data>
+</odoo>

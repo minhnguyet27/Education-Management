@@ -1,0 +1,10 @@
+<odoo>
+    <data>
+        <!-- Tạo danh mục module cho giáo dục -->
+        <record id="module_category_education" model="ir.module.category">
+            <field name="name">Education</field>
+            <field name="description">Modules related to education management</field>
+            <field name="sequence">10</field>
+        </record>
+    </data>
+</odoo>

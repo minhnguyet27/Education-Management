@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+ace_teacher,education.teacher admin,model_teacher_profile,teacher.group_teacher_manager,1,1,1,1
+ace_teacher,education.teacher user,model_teacher_profile,teacher.group_teacher_user,1,1,1,1
