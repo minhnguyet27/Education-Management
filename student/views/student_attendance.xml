@@ -47,7 +47,7 @@
       </field>
    </record>
 <!-- search -->
-   <!-- <record id="student_attendance_view_search" model="ir.ui.view">
+   <record id="student_attendance_view_search" model="ir.ui.view">
       <field name="name">student.attendance.search</field>
       <field name="model">student.attendance</field>
       <field name="arch" type="xml">
@@ -55,7 +55,7 @@
             <field name="student_id" filter_domain="['|', '|', ('name', 'ilike', self), ('student_code', '=', self) "/>
          </search>
       </field>
-   </record> -->
+   </record>
 
    <menuitem name="Student Manager" id="education_student_menu_root" />
    <menuitem id="education_student_attendance_menu" action="student_attendance_action"
