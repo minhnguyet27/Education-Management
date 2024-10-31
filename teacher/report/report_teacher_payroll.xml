@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- teacher_report.xml -->
+<odoo>
+    <report 
+        id="report_teacher_payroll"
+        model="teacher.payroll"
+        string="Payroll Report"
+        report_type="qweb-pdf"
+        name="teacher.report_teacher_payroll"
+        file="teacher.report_teacher_payroll"
+    />
+
+<!-- report_teacher_template.xml  -->
+<template id="report_teacher_payroll_template">
+    <t t-call="web.external_layout">
+        <t t-foreach="docs" t-as="payroll">
+            <div class="page">
+                <h2>Teacher Payroll Report</h2>
+                <p><strong>Payroll ID:</strong> <t t-esc="payroll.teacher_id"/></p>
+                <p><strong>Teacher Name:</strong> <t t-esc="payroll.teacher_id.name"/></p>
+                <!-- <p><strong>Total Salary:</strong> <t t-esc="payroll.total_salary"/></p>
+                <p><strong>Payment Date:</strong> <t t-esc="payroll.payment_date"/></p> -->
+                <table>
+                    <tr>
+                      <th>Tên giáo viên</th>
+                      <th>ID giáo viên</th>
+                      <th>Tổng lương</th>
+                    </tr>
+                    <tr>
+                      <td><t t-esc="payroll.teacher_id.name"/></td>
+                      <td><t t-esc="payroll.teacher_id"/></td>
+                      <td><t t-esc="payroll.teacher_id.total_salary"/></td>
+                    </tr>
+                </table>
+            </div>
+        </t>
+    </t>
+</template>
+</odoo>
+
+

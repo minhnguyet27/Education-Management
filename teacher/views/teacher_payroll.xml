@@ -2,7 +2,7 @@
 <odoo>
     <data>
         <record id="teacher_payroll_action" model="ir.actions.act_window">
-            <field name="name">teachers</field>
+            <field name="name">Payroll</field>
             <field name="res_model">teacher.payroll</field>
             <field name="view_mode">tree,form</field>
         </record>
@@ -24,6 +24,14 @@
             <field name="model">teacher.payroll</field>
             <field name="arch" type="xml">
                 <form string="">
+                    <header>
+                        <button name="action_print_payroll_report"
+                                type="object"
+                                string="In" 
+                                class="btn-primary"
+                                icon="fa-print"/>
+                    </header>
+
                     <sheet>
                         <group>
                             <field name="teacher_id" />
