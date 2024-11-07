@@ -23,7 +23,7 @@
             <field name="name">teacher.payroll.view.form</field>
             <field name="model">teacher.payroll</field>
             <field name="arch" type="xml">
-                <form string="">
+                <form string="Teacher Payroll">
                     <header>
                         <button name="action_print_payroll_report"
                                 type="object"

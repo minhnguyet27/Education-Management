@@ -44,7 +44,18 @@
                             </group>
                         </group>          
                     </sheet>
+                    
                 </form>
+            </field>
+        </record>
+        <record id="view_student_form_inherit" model="ir.ui.view">
+            <field name="name">education.student.form.inherit</field>
+            <field name="model">student.profile</field>
+            <field name="inherit_id" ref="student.student_profile_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='phone']" position="after">
+                    <field name="teacher_id"/>
+                </xpath>
             </field>
         </record>
 

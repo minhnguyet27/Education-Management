@@ -8,3 +8,5 @@ class TeacherProfile(models.Model):
     identification_id = fields.Char(string='Identification Number', required=True)
     hire_date = fields.Date(string='Hire Date')
     salary_per_hour = fields.Float(string='Salary per Hour', required=True)
+    student_ids = fields.One2many('student.profile', 'teacher_id', string="Students")  # Quan hệ với model Student
+

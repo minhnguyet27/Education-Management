@@ -16,7 +16,7 @@
    'website': "https://izisolution.vn/",
    'category': 'Education',
    'version': '0.1.0',
-   'depends': ['base','teacher'],
+   'depends': ['base'],
    'data': [
        'views/student_profile1.xml',
        'views/student_attendance.xml',
