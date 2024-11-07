@@ -14,7 +14,8 @@ class student_profile(models.Model):
     active = fields.Boolean(string='Active', default=True)
     is_active_icon = fields.Boolean(string='Is Active Icon', compute='_compute_is_active_icon')   
     attendance_ids = fields.One2many('student.attendance', 'student_id', string="Attendance Records")
-    teacher_id = fields.Many2one('teacher.profile', string="Class Teacher")  # Quan hệ đến giáo viên
+    # teacher_id = fields.Many2one('teacher.profile', string="Class Teacher")  # Quan hệ đến giáo viên
+
     _sql_constraints = [('unique_student_code_email', 'unique(student_code, email)', 'The combination of student code and email must be unique!')]
 
    # class_id = fields.Char(string='Class')
@@ -22,9 +23,10 @@ class student_profile(models.Model):
 #    is_editable = fields.Boolean(default=False)
 #    is_active = fields.Boolean(default=True)
 
-    def _compute_is_active_icon(self):
-        for record in self:
-            record.is_active_icon = record.active
+    # @api.model(self)
+    # def _compute_is_active_icon(self):
+    #     for record in self:
+    #         record.is_active_icon = record.active
 #    @api.multi
 #     def edit(self):
 #         # Logic to set the record in edit mode

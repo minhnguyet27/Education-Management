@@ -2,7 +2,7 @@ from odoo import http
 from odoo.http import request
 
 class StudentAPI(http.Controller): 
-    @http.route('/api/students',auth='none', type='json',methods=['GET'])
+    @http.route('/api/students',auth='none', type='json', methods=['GET'])
     def get_students(self,**kwargs):
         """API Lấy danh sách thông tin học sinh"""
         try: 

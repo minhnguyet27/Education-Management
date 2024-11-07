@@ -31,7 +31,7 @@
                             <field name="hire_date"/>
                             <field name="salary_per_hour"/>
                         </group>
-                        <group>
+                        <!-- <group>
                             <notebook>
                                 <page name="student_pf" string="Student">
                                     <field name="student_ids">
@@ -41,9 +41,9 @@
                                         </tree>
                                     </field>
                                 </page>
-                            </notebook>
+                            </notebook>                      
                         
-                        </group>
+                        </group> -->
                     </sheet>
                 </form>
             </field>
