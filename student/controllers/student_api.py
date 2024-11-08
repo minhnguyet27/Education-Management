@@ -13,10 +13,10 @@ class StudentAPI(http.Controller):
                     'id': student.id,
                     'student_code': student.student_code,
                     'name': student.name,
-                    # 'gender': student.gender,
-                    # 'email': student.email,
-                    # 'address': student.address,
-                    # 'phone': student.phone,
+                    'gender': student.gender,
+                    'email': student.email,
+                    'address': student.address,
+                    'phone': student.phone,
                     })
             return {'data': result}
         except Exception as e:
