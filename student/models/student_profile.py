@@ -1,10 +1,12 @@
 from odoo import fields, models, api
+from odoo.exceptions import ValidationError
+from datetime import date
 
 class student_profile(models.Model):
     _name = 'student.profile'
     _description = 'Student Profile'
 
-    student_code = fields.Char(string='Student Code', required=True)
+    student_code = fields.Char(string='Student Code', copy=False, index=True, default=lambda self:('New'))
     name = fields.Char(string='Student Name', required=True)
     birth = fields.Date(string='Birth Date', required=True)
     address = fields.Char(string='Address', required=True)
@@ -14,16 +16,42 @@ class student_profile(models.Model):
     active = fields.Boolean(string='Active', default=True)
     is_active_icon = fields.Boolean(string='Is Active Icon', compute='_compute_is_active_icon')   
     attendance_ids = fields.One2many('student.attendance', 'student_id', string="Attendance Records")
-    # teacher_id = fields.Many2one('teacher.profile', string="Class Teacher")  # Quan hệ đến giáo viên
+    teacher_id = fields.Many2one('teacher.profile', string="Class Teacher")  # Quan hệ đến giáo viên
 
-    _sql_constraints = [('unique_student_code_email', 'unique(student_code, email)', 'The combination of student code and email must be unique!')]
+    _sql_constraints = [('unique_student_email', 'unique(email)', 'The combination of email must be unique!')]
 
+    @api.constrains('phone')
+    def _check_phone(self):
+        for record in self:
+            if not record.phone.isdigit() or len(record.phone) < 9 or len(record.phone) > 11:
+                raise ValidationError("Trường phone phải chứa chữ số và dài từ 9 đến 11 ký tự")
+    
+    @api.model
+    def create(self, vals):
+        # Generate a new student code
+        if 'student_code' not in vals or not vals['student_code']:
+            # Get the last student code from the database
+            last_student = self.search([], order='id desc', limit=1)
+            if last_student:
+                # Assuming student_code is a numeric value, increment it
+                last_code_number = int(last_student.student_code[2:]) #lấy code cũ, loại bỏ tiền số hs ở đầu
+                new_code_number = last_code_number + 1
+                new_student_code = f"HS{str(new_code_number).zfill(5)}"  # 5 chữ số
+            else:
+                new_student_code = "HS00001"  # Starting code if no records exist
+
+            vals['student_code'] = new_student_code
+        return super(student_profile, self).create(vals)
+
+    def __str__(self):
+        return f"{self.student_code} - {self.name}"
+            
    # class_id = fields.Char(string='Class')
    # parent_id = fields.Char(string='Parent')
 #    is_editable = fields.Boolean(default=False)
 #    is_active = fields.Boolean(default=True)
 
-    # @api.model(self)
+    # @api.depend('active')
     # def _compute_is_active_icon(self):
     #     for record in self:
     #         record.is_active_icon = record.active

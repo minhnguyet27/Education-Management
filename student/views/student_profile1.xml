@@ -8,11 +8,11 @@
             <field name="arch" type="xml">
                 <tree string="Student Tree">
                     <field name="student_code" />
-                    <field name="name" />
+                    <!-- <field name="name" />
                     <field name="email" />
                     <field name="phone" />
                     <field name="gender" />
-                    <field name="birth" />
+                    <field name="birth" /> -->
                     <!-- <field name="is_active_icon" widget="status_icon" options="{'color': {'true': 'icon-active', 'false': 'icon-inactive'}}"/>                  -->
                 </tree>
             </field>
@@ -27,10 +27,12 @@
                         <!-- <button string="Save" type="object" name="action_save" class="btn-primary"/>
                         <button string="Edit" type="object" name="action_edit" class="btn-secondary"/> -->
                     </header>
-                    <sheet>            
+                    <sheet>
+                        <div class="oe_title">
+                            <h1><field name="student_code" readonly="1"/></h1>
+                        </div>     
                         <group>
                             <group>
-                                <field name="student_code" />
                                 <field name="name" />                   
                                 <field name="email" />  
                                 <field name="address" />                 
