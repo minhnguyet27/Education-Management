@@ -5,6 +5,7 @@ from datetime import date
 class student_profile(models.Model):
     _name = 'student.profile'
     _description = 'Student Profile'
+    _rec_name = 'student_code'
 
     student_code = fields.Char(string='Student Code', copy=False, index=True, default=lambda self:('New'))
     name = fields.Char(string='Student Name', required=True)
