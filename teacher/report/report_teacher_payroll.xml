@@ -14,8 +14,8 @@
 <!-- report_teacher_template.xml  -->
     <template id="report_teacher_payroll_template">
         <t t-call="web.external_layout">
-        <t t-raw="0">
-            <link rel="stylesheet" href="../static/src/report_teacher_payroll.css"/>
+        <t t-set="0">
+            <link rel="stylesheet" href="/Education-Management/teacher/static/src/report_teacher_payroll.css"/>
         </t>
             <main>
                 <t t-foreach="docs" t-as="payroll">
@@ -23,7 +23,7 @@
                         <h2>Teacher Payroll Report</h2>
                         <p><strong>Payroll ID:</strong> <t t-esc="payroll.teacher_id.identification_id"/></p>
                         <p><strong>Teacher Name:</strong> <t t-esc="payroll.teacher_id.name"/></p>
-                        <table>
+                        <table class="container w-100">
                             <tr>
                                 <th class="teacher_name">Tên giáo viên</th>
                                 <th class="teacher_id">ID giáo viên</th>

@@ -16,7 +16,7 @@
    'website': "https://izisolution.vn/",
    'category': 'Education',
    'version': '0.1.0',
-   'depends': ['base','web','student'],
+   'depends': ['base','web'],
    'data': [    
       'views/teacher_payroll.xml',
       'report/report_teacher_payroll.xml',

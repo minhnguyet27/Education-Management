@@ -27,6 +27,7 @@
                                 <field name="birth" />
                                 <field name="gender" />
                                 <field name="phone" />
+                                <!-- <field name="teacher_id" /> -->
                                 <!-- <field name="is_active_icon" widget="status_icon"/>                  -->
                             </group>
                         </group>          
@@ -35,7 +36,7 @@
                 </form>
             </field>
         </record>
-        <record id="education_student_view_tree" model="ir.ui.view">
+        <record id="education_student_profile_view_tree" model="ir.ui.view">
             <field name="name">student.profile.tree</field>
             <field name="model">student.profile</field>
             <field name="arch" type="xml">
@@ -45,21 +46,21 @@
                     <field name="email" />
                     <field name="phone" />
                     <field name="gender" />
-                    <field name="birth" />
-                    <field name="is_active_icon" widget="status_icon" options="{'color': {'true': 'icon-active', 'false': 'icon-inactive'}}"/> 
+                    <field name="birth"  />
+                    <!-- <field name="is_active_icon" widget="status_icon" options="{'color': {'true': 'icon-active', 'false': 'icon-inactive'}}"/>  -->
                 </tree>
             </field>
         </record>
-        <!-- <record id="view_student_form_inherit" model="ir.ui.view">
+        <record id="view_student_form_inherit" model="ir.ui.view">
             <field name="name">education.student.form.inherit</field>
             <field name="model">student.profile</field>
             <field name="inherit_id" ref="student.student_profile_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='phone']" position="after">
-                    <field name="teacher_id"/>
+                    <field name="teacher_id" readonly="1" />
                 </xpath>
             </field>
-        </record> -->
+        </record>
 
         <record id="student_profile_action" model="ir.actions.act_window">
             <field name="name">Students</field>

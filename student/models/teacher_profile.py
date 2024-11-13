@@ -1,6 +1,6 @@
 from odoo import models, fields
 
-class TeacherProfile(models.Model):
+class TeacherProfileInherit(models.Model):
     _inherit = 'teacher.profile'
 
     

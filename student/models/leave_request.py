@@ -25,19 +25,8 @@ class LeaveRequest(models.Model):
             vals['teacher_id'] = self.env.user.id  # Giáo viên có thể được gán tự động hoặc chọn thủ công
         return super(LeaveRequest, self).create(vals)
 
-    def action_approve(self):
-        # Only allow the teacher specified to approve the request
-        if self.env.user != self.teacher_id:
-            raise UserError("You can only approve leave requests assigned to you.")
-        if self.status == 'approved':
-            raise UserError("This request has already been approved.")
+    def approve_leave_request(self):
         self.status = 'approved'
-        self.approval_date = fields.Datetime.now()
 
-    def action_reject(self):
-        # Only allow the teacher specified to reject the request
-        if self.env.user != self.teacher_id:
-            raise UserError("You can only reject leave requests assigned to you.")
-        if self.status == 'rejected':
-            raise UserError("This request has already been rejected.")
+    def reject_leave_request(self):
         self.status = 'rejected'

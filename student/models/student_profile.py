@@ -15,9 +15,9 @@ class student_profile(models.Model):
     phone =  fields.Char(string='Phone Number', required=True)
     email =  fields.Char(string='Email', required=True)
     active = fields.Boolean(string='Active', default=True)
-    is_active_icon = fields.Boolean(string='Is Active Icon', compute='_compute_is_active_icon')   
+    is_active_icon = fields.Boolean(string='Is Active Icon')   
     attendance_ids = fields.One2many('student.attendance', 'student_id', string="Attendance Records")
-    teacher_id = fields.Many2one('teacher.profile', string="Class Teacher")  # Quan hệ đến giáo viên
+    teacher_id = fields.Many2one('teacher.profile', string="Teacher")  # Quan hệ đến giáo viên
 
     _sql_constraints = [('unique_student_email', 'unique(email)', 'The combination of email must be unique!')]
 

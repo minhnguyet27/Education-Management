@@ -44,7 +44,7 @@
             </field>
        </record>
 
-        <!-- <menuitem name="Teacher Manager" id="education_teacher_menu_root"  /> -->
+        <menuitem name="Teacher Manager" id="education_teacher_menu_root"  />
         <menuitem id="education_teacher_payroll_menu" action="teacher_payroll_action"
         parent="education_teacher_menu_root" name="Payroll" sequence="4"/>
 
