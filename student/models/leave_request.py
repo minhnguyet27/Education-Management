@@ -6,6 +6,7 @@ class LeaveRequest(models.Model):
     _description = 'Leave Request'
 
     student_id = fields.Many2one('student.profile', string='Student', required=True)
+    student_name = fields.Char(related='student_id.name', string='Student', required=True)
     leave_date = fields.Date(string='Leave Date', required=True)
     reason = fields.Text(string='Reason', required=True)
     status = fields.Selection([

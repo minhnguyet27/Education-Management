@@ -18,6 +18,8 @@ class student_profile(models.Model):
     is_active_icon = fields.Boolean(string='Is Active Icon')   
     attendance_ids = fields.One2many('student.attendance', 'student_id', string="Attendance Records")
     teacher_id = fields.Many2one('teacher.profile', string="Teacher")  # Quan hệ đến giáo viên
+    tuition_fee_ids = fields.One2many('tuition.fee', 'student_id', string="Tuition Fees")
+
 
     _sql_constraints = [('unique_student_email', 'unique(email)', 'The combination of email must be unique!')]
 
@@ -46,6 +48,13 @@ class student_profile(models.Model):
 
     def __str__(self):
         return f"{self.student_code} - {self.name}"
+    
+    def name_get(self):
+        result = []
+        for record in self:
+            name = f"[{record.student_code}] {record.name}"
+            result.append((record.id, name))
+        return result
             
    # class_id = fields.Char(string='Class')
    # parent_id = fields.Char(string='Parent')

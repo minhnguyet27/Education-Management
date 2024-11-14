@@ -21,6 +21,7 @@
        'views/student_profile1.xml',
        'views/student_attendance.xml',
        'views/leave_request.xml',
+       'views/tuition_fee.xml',
        'security/education_category.xml',
        'security/student_security.xml',
        'security/ir.model.access.csv',

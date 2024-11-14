@@ -57,7 +57,7 @@
             <field name="inherit_id" ref="student.student_profile_view_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='phone']" position="after">
-                    <field name="teacher_id" readonly="1" />
+                    <field name="teacher_id"/>
                 </xpath>
             </field>
         </record>

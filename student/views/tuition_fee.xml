@@ -1,0 +1,52 @@
+<odoo>
+    <record id="view_tuition_fee_tree" model="ir.ui.view">
+        <field name="name">tuition.fee.tree</field>
+        <field name="model">tuition.fee</field>
+        <field name="arch" type="xml">
+            <tree string="Tuition Fees">
+                <field name="student_id"/>
+                <field name="amount"/>
+                <field name="due_date"/>
+                <field name="payment_date"/>
+                <field name="status" widget="label_selection"
+                     options="{'classes': {'unpaid': 'default', 'paid': 'success', 'rejected': 'late'}}"
+                />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_tuition_fee_form" model="ir.ui.view">
+        <field name="name">tuition.fee.form</field>
+        <field name="model">tuition.fee</field>
+        <field name="arch" type="xml">
+            <form string="Tuition Fee">
+                <header>
+                    <field name="status" widget="statusbar" statusbar_visible="unpaid,paid,late"/>
+                </header>
+
+                <sheet>
+                    <group>
+                        <field name="student_id"/>
+                        <field name="amount"/>
+                        <field name="due_date"/>
+                        <field name="payment_date"/>
+                        <field name="status"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- Action để mở danh sách học phí -->
+    <record id="action_tuition_fee" model="ir.actions.act_window">
+        <field name="name">Tuition Fees</field>
+        <field name="res_model">tuition.fee</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu để truy cập -->
+    <!-- <menuitem id="menu_tuition_fee_root" name="Tuition Fees" sequence="10"/> -->
+    <menuitem id="menu_tuition_fee" name="Tuition Fee Management" parent="education_student_menu_root"
+              action="action_tuition_fee" />
+</odoo>

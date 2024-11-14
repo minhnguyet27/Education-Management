@@ -15,16 +15,15 @@
                     <field name="status" widget="statusbar" statusbar_visible="draft,approved,rejected"/>
                 </header>
                 <sheet>
-                    <div class="oe_title text-center">
+                    <div class="oe_title">
                             <h1>Đơn xin nghỉ học</h1>
                     </div>
-
                     <group>
                         <field name="student_id"/>
                         <field name="leave_date"/>
                         <field name="reason"/>
                         <field name="status"/>
-                        <field name="teacher_id" readonly="1"/>
+                        <field name="teacher_id"/>
                         <field name="approval_date" readonly="1"/>
                     </group>
                 </sheet>
@@ -36,10 +35,53 @@
             </form>
         </field>
     </record>
+    <record id="leave_request_view_kanban" model="ir.ui.view">
+        <field name="name">leave.request.view.kanban</field>
+        <field name="model">leave.request</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="status">
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                        <!-- Student Name -->
+                        <div class="text-primary mb4">
+                            <strong>
+                            <field name="student_id"/>-
+                            <field name="student_name"/>
+                            </strong>
+                        </div>                        
+                        <!-- Leave Date -->
+                        <div class="mb4">
+                            <field name="leave_date"/>
+                        </div>
+                        <!-- Status -->
+                        <div>
+                            <field name="status" widget="label_selection" 
+                                options="{'classes': {'draft': 'default', 'approved': 'success', 'rejected': 'danger'}}"/>
+                        </div>
+                    </div>                       
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+    <record id="leave_request_view_tree" model="ir.ui.view">
+        <field name="name">leave.request.view.tree</field>
+        <field name="model">leave.request</field>
+        <field name="arch" type="xml">
+            <tree string="Leave Request">
+            <field name="student_id"/>
+            <field name="student_name"/>
+            <field name="leave_date"/>
+            <field name="status" widget="label_selection" 
+            options="{'classes': {'draft': 'default', 'approved': 'success', 'rejected': 'danger'}}"/>                
+            </tree>
+        </field>
+    </record>
     <record id="action_leave_request" model="ir.actions.act_window">
         <field name="name">Leave Requests</field>
         <field name="res_model">leave.request</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,tree,form</field>
         <field name="context">{}</field>
     </record>
     <menuitem name="Student Manager" id="education_student_menu_root" />
