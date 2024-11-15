@@ -1,6 +1,6 @@
 from odoo import models, fields
 
-class TeacherProfile(models.Model):
+class ClassSchedule(models.Model):
     _name = 'class.schedule'
 
     

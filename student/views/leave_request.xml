@@ -23,7 +23,7 @@
                         <field name="leave_date"/>
                         <field name="reason"/>
                         <field name="status"/>
-                        <field name="teacher_id"/>
+                        <field name="teacher_id" readonly="1"/>
                         <field name="approval_date" readonly="1"/>
                     </group>
                 </sheet>
@@ -46,8 +46,8 @@
                         <!-- Student Name -->
                         <div class="text-primary mb4">
                             <strong>
-                            <field name="student_id"/>-
-                            <field name="student_name"/>
+                            <field name="student_id"/>
+                            <!-- <field name="student_name"/> -->
                             </strong>
                         </div>                        
                         <!-- Leave Date -->
@@ -71,7 +71,7 @@
         <field name="arch" type="xml">
             <tree string="Leave Request">
             <field name="student_id"/>
-            <field name="student_name"/>
+            <!-- <field name="student_name"/> -->
             <field name="leave_date"/>
             <field name="status" widget="label_selection" 
             options="{'classes': {'draft': 'default', 'approved': 'success', 'rejected': 'danger'}}"/>                

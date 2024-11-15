@@ -9,7 +9,7 @@
                 <field name="due_date"/>
                 <field name="payment_date"/>
                 <field name="status" widget="label_selection"
-                     options="{'classes': {'unpaid': 'default', 'paid': 'success', 'rejected': 'late'}}"
+                     options="{'classes': {'unpaid': 'default', 'paid': 'success', 'late': 'danger'}}"
                 />
             </tree>
         </field>
@@ -47,6 +47,6 @@
 
     <!-- Menu để truy cập -->
     <!-- <menuitem id="menu_tuition_fee_root" name="Tuition Fees" sequence="10"/> -->
-    <menuitem id="menu_tuition_fee" name="Tuition Fee Management" parent="education_student_menu_root"
+    <menuitem id="menu_tuition_fee" name="Tuition Fee" parent="education_student_menu_root"
               action="action_tuition_fee" />
 </odoo>
