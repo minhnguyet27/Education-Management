@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<menuitem id="menu_form" name="Form Nhập Dữ Liệu" action="action_open_form"/>
+<record id="view_form_diary_form" model="ir.ui.view">
+    <field name="name">form.diary.form</field>
+    <field name="model">form.diary</field>
+    <field name="arch" type="xml">
+        <form string="Tham số">
+            <sheet>
+                <group>
+                    <group>
+                        <field name="name" required="1"/>
+                        <field name="date_start" required="1"/>
+                        <field name="date_end" required="1"/>
+                    </group>
+                    <group>
+                        <field name="source_id"/>
+                        <field name="program_id"/>
+                        <field name="section_id"/>
+                        <field name="filter_type" widget="radio"/>
+                    </group>
+                    <group>   
+                        <field name="combine_entries"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="template"/>
+                </group>
+            </sheet>
+            <footer>
+                <button name="action_save" type="object" string="Đồng ý" class="btn-primary"/>
+                <button string="Hủy bỏ" class="btn-secondary" special="cancel"/>
+            </footer>
+        </form>
+    </field>
+</record>
+<record id="action_open_form" model="ir.actions.act_window">
+    <field name="name">Tham số báo cáo</field>
+    <field name="res_model">form.diary</field>
+    <field name="view_mode">form,tree</field>
+    <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create a new document for more
+                </p>
+    </field>
+</record>
+</odoo>
+
+
