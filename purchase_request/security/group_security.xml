@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
 <odoo>
 <!-- manager -->
-    <record id="purchase_manager_group" model="res.groups">
+    <record id="purchase_request_manager_group" model="res.groups">
         <field name="name">Purchase Manager</field>
-        <field name="implied_ids" eval="[(4, ref('purchase.group_purchase_manager'))]"/>
+        <field name="implied_ids" eval="[(4, ref('purchase_request_manager'))]"/>
     </record>
 <!-- User -->
-    <record id="purchase_user_group" model="res.groups">
+    <record id="purchase_request_user_group" model="res.groups">
         <field name="name">Purchase User</field>
-        <field name="implied_ids" eval="[(4, ref('purchase.group_purchase_user'))]"/>
+        <field name="implied_ids" eval="[(4, ref('purchase_request_user'))]"/>
     </record>
 </odoo>

@@ -43,22 +43,22 @@
                             </div>
                             <group>
                                 
-                                <field name="request_id" string="Được yêu cầu bởi"/>
-                                <field name="approver_id" string="Người phê duyệt" />
-                                <field name="department_id" string="Phòng ban" />
-                                <field name="date"  string="Ngày tạo" />
-                                <field name="company_id"/>
+                                <field name="request_id" string="Được yêu cầu bởi" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="approver_id" string="Người phê duyệt" attrs="{'readonly': [('state', '!=', 'draft')]}" />
+                                <field name="department_id" string="Phòng ban" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="date"  string="Ngày tạo" attrs="{'readonly': [('state', '!=', 'draft')]}" />
+                                <field name="company_id" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                                 <field name="date_approve" string="Ngày duyệt" />
                             </group>
                             <group>
-                                <field name="description"/>
-                                <field name="total_qty" />
+                                <field name="description" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                                <field name="total_qty" attrs="{'readonly': [('state', '!=', 'draft')]}" />
                                 <field name="total_amount" widget="monetary" options="{'currency_field': 'company_currency_id'}"/>
                             </group>
                         </group>
                         <notebook>
                             <page string="Sản phẩm">
-                                <field name="request_line_ids" context="{'default_request_id': active_id}">
+                                <field name="request_line_ids" attrs="{'readonly': [('state', '!=', 'draft')]}" context="{'default_request_id': active_id}">
                                     <tree editable="bottom">
                                         <!-- <field name="id" string="STT" readonly="1" widget="handle"/> -->
                                         <field name="product_id" required="1" string="Sản phẩm"/>
