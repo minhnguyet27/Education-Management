@@ -26,6 +26,7 @@
                     <header>
                         <button name="action_save" type="object" string="Lưu" class="btn-primary"/>
                         <button string="Hủy bỏ" type="action" special="cancel" class="btn-secondary"/>
+                        <button name="export_to_excel" type="object" string="Export Excel" states="approved" class="btn-secondary"/>
                     </header>
                     
                     <header>
