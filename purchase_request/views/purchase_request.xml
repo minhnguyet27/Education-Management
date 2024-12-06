@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="0">
+         <record id="view_purchase_request_tree" model="ir.ui.view">
+            <field name="name">purchase.request.tree</field>
+            <field name="model">purchase.request</field>
+            <field name="arch" type="xml">
+                <tree string="Purchase Requests">
+                    <field name="name"/>
+                    <field name="department_id"/>
+                    <field name="request_id"/>
+                    <field name="date"/>
+                    <field name="total_qty"/>
+                    <field name="total_amount" widget="monetary" options="{'currency_field': 'company_currency_id'}"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_purchase_request_form" model="ir.ui.view">
+            <field name="name">purchase.request.form</field>
+            <field name="model">purchase.request</field>
+            <field name="arch" type="xml">
+                <form string="Purchase Request" create="true" edit="true">
+                    <header>
+                        <button name="action_save" type="object" string="Lưu" class="btn-primary"/>
+                        <button string="Hủy bỏ" type="action" special="cancel" class="btn-secondary"/>
+                    </header>
+                    
+                    <header>
+                        <button name="action_send_request" type="object" string="Gửi yêu cầu" states="draft" class="btn-primary"/>  <!-- user -->
+                        <button name="action_approve" type="object" string="Duyệt" states="wait" class="btn-success" groups="purchase.group_purchase_manager"/> <!-- manager -->
+                        <button name="action_reset_to_draft" type="object" string="Quay lại" states="wait" class="btn-secondary"/> <!-- user -->
+                        <button name="action_cancel" type="object" string="Từ chối" states="wait" class="btn-danger"  groups="purchase.group_purchase_manager"/> <!-- manager -->
+                        <button name="action_reset_to_draft" type="object" string="Trở về nháp" states="cancel,approved"  groups="purchase.group_purchase_manager"/> <!-- manager -->
+                        <field name="state" widget="statusbar" statusbar_visible="draft,wait,approved,cancel"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <div class="o_field_widget o_field_text" style="font-size: 2em;">
+                                <field name="name" string="Yêu cầu phê duyệt" />
+                            </div>
+                            <group>
+                                
+                                <field name="request_id" string="Được yêu cầu bởi"/>
+                                <field name="approver_id" string="Người phê duyệt" />
+                                <field name="department_id" string="Phòng ban" />
+                                <field name="date"  string="Ngày tạo" />
+                                <field name="company_id"/>
+                                <field name="date_approve" string="Ngày duyệt" />
+                            </group>
+                            <group>
+                                <field name="description"/>
+                                <field name="total_qty" />
+                                <field name="total_amount" widget="monetary" options="{'currency_field': 'company_currency_id'}"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Sản phẩm">
+                                <field name="request_line_ids" context="{'default_request_id': active_id}">
+                                    <tree editable="bottom">
+                                        <!-- <field name="id" string="STT" readonly="1" widget="handle"/> -->
+                                        <field name="product_id" required="1" string="Sản phẩm"/>
+                                        <field name="uom_id" required="1" string="Đơn vị"/>
+                                        <field name="qty" required="1" string="Số lượng"/>
+                                        <field name="qty_approve" string="Số lượng phê duyệt" />
+                                        <field name="price_unit"/>
+                                        <field name="total"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_purchase_request" model="ir.actions.act_window">
+            <field name="name">Purchase Requests</field>
+            <field name="res_model">purchase.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_purchase_request_tree"/>
+        </record>
+
+        <!-- Menu -->
+        <menuitem id="menu_purchase_root" name="Purchases" />
+        <menuitem id="menu_purchase_request" name="Purchase Requests" parent="menu_purchase_root" action="action_purchase_request"/>
+
+    </data>
+</odoo>
